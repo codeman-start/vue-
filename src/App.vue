@@ -1,33 +1,30 @@
+<!--
+ * @Date: 2022-09-20 18:14:17
+ * @LastEditors: 冯文魁
+ * @LastEditTime: 2022-09-24 09:47:57
+ * @FilePath: \demo\src\App.vue
+-->
 <template>
   <div class="container">
-    <Category title="美食">
-      <img
-        slot="center"
-        src="https://s3.ax1x.com/2021/01/16/srJlq0.jpg"
-        alt=""
-      />
-      <a slot="footer" href="http://www.atguigu.com">更多美食</a>
+    <Category title="游戏">
+      <template scope="jojo">
+        <ul>
+          <li v-for="(g, index) in jojo.games" :key="index">{{ g }}</li>
+        </ul>
+      </template>
     </Category>
 
     <Category title="游戏">
-      <ul slot="center">
-        <li v-for="(g, i) in games" :key="i">{{ g }}</li>
-      </ul>
-      <a slot="footer" href="javascript:;">更多内容</a>
+      <template scope="jojo">
+        <ol>
+          <li v-for="(g, index) in jojo.games" :key="index">{{ g }}</li>
+        </ol>
+      </template>
     </Category>
 
-    <Category title="电影">
-      <video
-        slot="center"
-        controls
-        src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
-      ></video>
-      <template v-slot:footer>
-        <div>
-          <a href="javascript:;">日韩</a>
-          <a href="javascript:;">日韩</a>
-          <a href="javascript:;">日韩</a>
-        </div>
+    <Category title="游戏">
+      <template scope="jojo">
+        <h4 v-for="(g, index) in jojo.games" :key="index">{{ g }}</h4>
       </template>
     </Category>
   </div>
@@ -38,11 +35,6 @@ import Category from "./components/Category";
 export default {
   name: "App",
   components: { Category },
-  data() {
-    return {
-      games: ["植物大战僵尸", "红色警戒", "空洞骑士", "王国"],
-    };
-  },
 };
 </script>
 
