@@ -1,6 +1,12 @@
 <!--
  * @Date: 2022-09-20 18:14:17
  * @LastEditors: 冯文魁
+ * @LastEditTime: 2022-09-24 10:56:36
+ * @FilePath: \demo\src\App.vue
+-->
+<!--
+ * @Date: 2022-09-20 18:14:17
+ * @LastEditors: 冯文魁
  * @LastEditTime: 2022-09-24 09:47:57
  * @FilePath: \demo\src\App.vue
 -->
@@ -23,8 +29,8 @@
     </Category>
 
     <Category title="游戏">
-      <template scope="jojo">
-        <h4 v-for="(g, index) in jojo.games" :key="index">{{ g }}</h4>
+      <template scope="{games}">
+        <h4 v-for="(g, index) in games" :key="index">{{ g }}</h4>
       </template>
     </Category>
   </div>
