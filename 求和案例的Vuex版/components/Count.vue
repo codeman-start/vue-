@@ -1,12 +1,12 @@
 <!--
  * @Date: 2022-09-24 11:29:47
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-24 21:35:09
+ * @LastEditTime: 2022-09-25 00:18:29
  * @FilePath: \demo\src\components\Count.vue
 -->
 <template>
   <div>
-    <h1>当前求和为：{{ sum }}</h1>
+    <h1>当前求和为：{{ $store.state.sum }}</h1>
     <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -30,20 +30,21 @@ export default {
   },
   methods: {
     increment() {
-      this.sum += this.n;
+      //   this.$store.dispatch("jia", this.n);
+      this.$store.commit("JIA", this.n);
     },
     decrement() {
-      this.sum -= this.n;
+      //   this.$store.dispatch("jian", this.n);
+      this.$store.commit("JIAN", this.n);
     },
     incrementOdd() {
-      if (this.sum % 2) {
-        this.sum += this.n;
-      }
+      this.$store.dispatch("jiaOdd", this.n);
+      //   if (this.$store.state.sum % 2) {
+      //     this.$store.dispatch("jia", this.n);
+      //   }
     },
     incrementWait() {
-      setTimeout(() => {
-        this.sum += this.n;
-      }, 500);
+      this.$store.dispatch("jiaWait", this.n);
     },
   },
 };

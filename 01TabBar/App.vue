@@ -1,3 +1,9 @@
+<!--
+ * @Date: 2022-09-24 21:05:30
+ * @LastEditors: 冯文魁
+ * @LastEditTime: 2022-09-25 08:50:07
+ * @FilePath: \demo\01TabBar\App.vue
+-->
 <template>
   <div>
     <MyHeader title="TabBar"> </MyHeader>
