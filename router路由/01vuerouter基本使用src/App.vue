@@ -1,17 +1,15 @@
 <!--
  * @Date: 2022-09-25 09:59:18
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-25 16:42:49
+ * @LastEditTime: 2022-09-25 10:50:57
  * @FilePath: \demo\src\App.vue
 -->
 <template>
   <div>
     <div class="footer_wrap">
-      <router-link to="/find">发现音乐</router-link>
-      <router-link to="/my">我的音乐</router-link>
-      <router-link to="/part?name=张三">朋友</router-link>
-      <router-link to="/part/李四">朋友</router-link>
-      <router-link to="、fsda">404</router-link>
+      <a href="#/find">发现音乐</a>
+      <a href="#/my">我的音乐</a>
+      <a href="#/part">朋友</a>
     </div>
     <div class="top">
       <router-view></router-view>
@@ -48,9 +46,5 @@ export default {};
 }
 .top {
   padding-top: 62px;
-}
-.footer_wrap .router-link-active {
-  color: white;
-  background: black;
 }
 </style>

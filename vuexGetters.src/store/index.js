@@ -1,8 +1,8 @@
 /*
  * @Date: 2022-09-24 23:20:43
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-25 10:11:29
- * @FilePath: \demo\求和案例的Vuex版\store\index.js
+ * @LastEditTime: 2022-09-25 00:23:22
+ * @FilePath: \demo\src\store\index.js
  */
 import Vue from "vue";
 import Vuex from "vuex";
@@ -43,11 +43,6 @@ const mutations = {
 const state = {
 	sum: 0,
 };
-const getters = {
-	bigSum(state) {
-		return state.sum * 10;
-	},
-};
-export default new Vuex.Store({ actions, mutations, state, getters });
+export default new Vuex.Store({ actions, mutations, state });
 // 暴露store
 // export default store;

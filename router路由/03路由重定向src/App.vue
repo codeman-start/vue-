@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-25 09:59:18
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-25 16:42:49
+ * @LastEditTime: 2022-09-25 11:31:24
  * @FilePath: \demo\src\App.vue
 -->
 <template>
@@ -11,7 +11,6 @@
       <router-link to="/my">我的音乐</router-link>
       <router-link to="/part?name=张三">朋友</router-link>
       <router-link to="/part/李四">朋友</router-link>
-      <router-link to="、fsda">404</router-link>
     </div>
     <div class="top">
       <router-view></router-view>

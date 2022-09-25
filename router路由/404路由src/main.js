@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-09-20 18:14:17
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-25 17:15:18
+ * @LastEditTime: 2022-09-25 12:00:09
  * @FilePath: \demo\src\main.js
  */
 import Vue from "vue";
@@ -40,7 +40,6 @@ const router = new VueRouter({ routes });
 Vue.config.productionTip = false;
 const vm = new Vue({
 	router,
-	mode: "history",
 	render: (h) => h(App),
 }).$mount("#app");
 console.log(vm);
