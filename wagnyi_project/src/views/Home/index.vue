@@ -1,40 +1,32 @@
 <!--
  * @Date: 2022-09-28 21:40:02
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-28 23:37:28
+ * @LastEditTime: 2022-09-29 00:01:21
  * @FilePath: \wagnyi_project\src\views\Home\index.vue
 -->
 <template>
   <div>
     <p class="title">推荐歌单</p>
     <van-row gutter="6">
-      <van-col span="8"
+      <van-col span="8" v-for="item in recMusic" :key="item.id"
         ><van-image
           width="100%"
           height="3rem"
           fit="cover"
           lazy-load
-          src="https://img01.yzcdn.cn/vant/cat.jpeg"
-      /></van-col>
-      <van-col span="8"
-        ><van-image
-          width="100%"
-          height="3rem"
-          fit="cover"
-          lazy-load
-          src="https://img01.yzcdn.cn/vant/cat.jpeg"
-      /></van-col>
-      <van-col span="8"
-        ><van-image
-          width="100%"
-          height="3rem"
-          fit="cover"
-          lazy-load
-          src="https://img01.yzcdn.cn/vant/cat.jpeg"
-      /></van-col>
+          :src="item.picUrl"
+        />
+        <p class="song_name">{{ item.name }}</p></van-col
+      >
     </van-row>
     <p class="title">最新音乐</p>
-    <van-cell center title="单元格" label="描述信息">
+    <van-cell
+      center
+      :title="item.name"
+      :label="item.song.artists[0].name + ' - ' + item.name"
+      v-for="item in newSongs"
+      :key="item.id"
+    >
       <template #right-icon>
         <van-icon name="play-circle-o" size=".6rem" /> </template
     ></van-cell>
@@ -42,7 +34,31 @@
 </template>
 
 <script>
-export default {};
+import { recommendMusic, newMusic } from "@/api/home";
+export default {
+  data() {
+    return {
+      recMusic: [],
+      newSongs: [],
+    };
+  },
+  created() {
+    this.getRemmendMusic();
+    this.getSongs();
+  },
+  methods: {
+    async getRemmendMusic() {
+      const res = await recommendMusic({ limit: 6 });
+
+      this.recMusic = res.result;
+    },
+    async getSongs() {
+      const res = await newMusic({ limit: 6 });
+      console.log(res);
+      this.newSongs = res.result;
+    },
+  },
+};
 </script>
 
 <style>
