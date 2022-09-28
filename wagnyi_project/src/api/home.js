@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-09-28 23:54:55
  * @FilePath: \wagnyi_project\src\api\home.js
  */
-import "@/uitls";
+
 import request from "@/uitls";
 export const recommendMusic = (params) =>
 	request({
