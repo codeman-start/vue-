@@ -1,13 +1,15 @@
 <!--
  * @Date: 2022-09-25 20:24:38
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-25 23:40:29
+ * @LastEditTime: 2022-09-25 23:30:53
  * @FilePath: \demo\src\App.vue
 -->
 <template>
   <div>
     <div class="row">
-      <Banner />
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="page-header"><h2>Vue Router Demo</h2></div>
+      </div>
     </div>
     <div class="row">
       <div class="col-xs-2 col-xs-offset-2">
@@ -42,9 +44,7 @@
 </template>
 
 <script>
-import Banner from "@/components/Banner.vue";
 export default {
-  components: { Banner },
   name: "App",
 };
 </script>
