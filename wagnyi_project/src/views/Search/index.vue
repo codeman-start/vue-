@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-28 21:40:40
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-29 00:19:56
+ * @LastEditTime: 2022-09-29 00:33:50
  * @FilePath: \wagnyi_project\src\views\Search\index.vue
 -->
 <template>
@@ -11,7 +11,7 @@
       shape="round"
       placeholder="请输入搜索关键词"
     />
-    <div class="search_wrap hot_title">
+    <div class="search_wrap hot_title" v-if="!KeyWord">
       热门搜索
       <div class="hot_name_wrap">
         <span
@@ -23,16 +23,30 @@
         >
       </div>
     </div>
+    <div class="search_wrap hot_title" v-else>
+      最佳匹配
+      <van-cell
+        center
+        :title="item.name"
+        :label="item.ar[0].name + ' - ' + item.name"
+        v-for="item in songs"
+        :key="item.id"
+      >
+        <template #right-icon>
+          <van-icon name="play-circle-o" size=".6rem" /> </template
+      ></van-cell>
+    </div>
   </div>
 </template>
 
 <script>
-import { hotKey } from "@/api/search";
+import { hotKey, outCome } from "@/api/search";
 export default {
   data() {
     return {
       KeyWord: "",
       HotkeyWord: [],
+      songs: [],
     };
   },
   created() {
@@ -42,7 +56,13 @@ export default {
     async getHotkey() {
       const res = await hotKey();
       this.HotkeyWord = res.result.hots;
-      console.log(this.HotkeyWord);
+    },
+  },
+  watch: {
+    async KeyWord(val) {
+      const res = await outCome({ keywords: val });
+      console.log(res);
+      this.songs = res.result.songs;
     },
   },
 };

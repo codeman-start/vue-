@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-28 21:40:02
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-29 00:01:21
+ * @LastEditTime: 2022-09-29 00:25:04
  * @FilePath: \wagnyi_project\src\views\Home\index.vue
 -->
 <template>
