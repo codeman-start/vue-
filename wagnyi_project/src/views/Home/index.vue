@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-28 21:40:02
  * @LastEditors: 冯文魁
- * @LastEditTime: 2022-09-29 00:25:04
+ * @LastEditTime: 2022-09-29 20:22:31
  * @FilePath: \wagnyi_project\src\views\Home\index.vue
 -->
 <template>
@@ -20,22 +20,20 @@
       >
     </van-row>
     <p class="title">最新音乐</p>
-    <van-cell
-      center
+    <Song
       :title="item.name"
       :label="item.song.artists[0].name + ' - ' + item.name"
       v-for="item in newSongs"
       :key="item.id"
-    >
-      <template #right-icon>
-        <van-icon name="play-circle-o" size=".6rem" /> </template
-    ></van-cell>
+    />
   </div>
 </template>
 
 <script>
 import { recommendMusic, newMusic } from "@/api/home";
+import Song from "@/components/Song.vue";
 export default {
+  components: { Song },
   data() {
     return {
       recMusic: [],
